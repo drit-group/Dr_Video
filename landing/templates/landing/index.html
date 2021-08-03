@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ویدیو عا</title>
+</head>
+<body>
+{% for video in videos %}
+    <h1>{{video.title}}</h1>
+    <a href="{{video.url}}">ادرس ویدیو</a>
+    <p>{{video.description}}</p>
+    <!-- <video src="{{video.source}}"></video> -->
+    <img src="media/{{video.source}}" width="200px" alt="">
+{% endfor %}
+</body>
+</html>
