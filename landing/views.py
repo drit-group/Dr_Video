@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
+from django.http import HttpResponse
 from account.models import Vidoes
 
 from django.core.paginator import Paginator
@@ -13,8 +14,12 @@ def home(request,page=None):
     contex = { 'videos' : page_obj}
     return render(request,'landing/index.html',contex)
 
-def multi(request):
-    num = request.GET.get("num")
+def detail(request,pk_id):
+    video = get_object_or_404(Vidoes, pk=pk_id )
+    return render(request, "landing/single.html", {'video':video})
+
+def multi(request,num):
+    num = int(num)
     num += 1
     contex = []
     for i in range(1,num):
@@ -22,7 +27,7 @@ def multi(request):
         for j in range(1,num):
             tmp.append(j*i)
         contex.append(tmp)
-    
+    return render(request, "contex.html", {"contex" : contex})
 # contex = [
 # [1,2,3],
 # [1,2,3],
