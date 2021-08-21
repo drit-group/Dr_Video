@@ -7,3 +7,5 @@ class Vidoes(models.Model):
     source = models.FileField(upload_to="videos/", max_length=100)
     url = models.CharField(max_length=250,null=True)
     description = models.TextField()
+    def get_image(self):
+        return "/media/"+str(self.source)

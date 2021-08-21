@@ -1,10 +1,10 @@
-from .views import home,detail,multi
+from .views import DetailVideo,multi,ListVideo
 from django.urls import path
 name = "landing"
 urlpatterns = [
-    path('', home,name="home"),
-    path("page/<int:page>", home, name="home"),
-    path('video/<int:pk_id>', detail ,name="single"),
+    path('', ListVideo.as_view(),name="home"),
+    path("page/<int:page>", ListVideo.as_view(), name="home"),
+    path('video/<int:pk>', DetailVideo.as_view() ,name="single"),
     path("multi/<int:num>", multi, name="m"),
 
 ]
