@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Vidoes
+from .models import Article
 # Register your models here.
-admin.site.register(Vidoes)
+admin.site.register(Article)

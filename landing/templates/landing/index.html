@@ -21,39 +21,41 @@ https://templatemo.com/tm-527-sided
   <body>
     <div class="columns-bg">
       <!-- Logo & Intro -->
-
+      {% for article in object_list %}
 
       <!-- Fusce, Section 4 -->
-      <section id="section_4" class="tm-section-4">
-        <div class="container-fluid">
-          <div class="row flex-column-reverse flex-lg-row">
-            <div class="col-md-12 col-lg-6 tm-text-left-container">
-              <div class="tm-section-text-container-3 tm-bg-white-alpha h-100">
-                <h2 class="tm-text-accent tm-section-title-mb">
-                  Fusce a porttitor augue
-                </h2>
-                <p class="mb-0">
-                  Quisque rutrum dapibus odio vitae tincidunt. Etiam
-                  sollicitudin augue non porta interdum. Pellentesque placerat
-                  orci at libero ornare, nec viverra justo lobortis. Phasellus
-                  venenatis eros non.
-                </p>
+        <a href="{% url 'landing:single' article.slug %}">
+          <section id="section_4" class="tm-section-4">
+            <div class="container-fluid">
+              <div class="row flex-column-reverse flex-lg-row">
+                <div class="col-md-12 col-lg-6 tm-text-left-container">
+                  <div class="tm-section-text-container-3 tm-bg-white-alpha h-100">
+                    <h2 class="tm-text-accent tm-section-title-mb">
+                      {{article.title}}
+                    </h2>
+                    <p class="mb-0">
+                      {{article.description | truncatewords:45}}
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="col-md-12 col-lg-6 tm-section-image-container tm-img-right-container"
+                >
+                  <img
+                    src="{{article.get_image}}"
+                    alt="Image"
+                    class="img-fluid tm-img-right"
+                  />
+                </div>
               </div>
             </div>
-            <div
-              class="col-md-12 col-lg-6 tm-section-image-container tm-img-right-container"
-            >
-              <img
-                src="img/forty_image_02.jpg"
-                alt="Image"
-                class="img-fluid tm-img-right"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
+          </section>
+        </a>
+      {% endfor %}
     </div>
+    <!-- pagination -->
+
+    
     <!-- /.columns-bg -->
   </body>
 </html>

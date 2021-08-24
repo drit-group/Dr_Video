@@ -1,26 +1,26 @@
 from django.shortcuts import render , get_object_or_404
 from django.http import HttpResponse
-from account.models import Vidoes
+from account.models import Article
 from django.views.generic import ListView , DetailView
 from django.core.paginator import Paginator
 # Create your views here.
 
 class ListVideo(ListView):
-    model = Vidoes
+    model = Article
     template_name = "landing/index.html"
     paginate_by = 2
 
-# def home(request,page=None):
-#     name = request.GET.get("name")
-#     objects = Vidoes.objects.all()
-#     objects = Paginator(objects,2)
-#     page_number = page
-#     page_obj = objects.get_page(page_number)
-#     contex = { 'videos' : page_obj}
-#     return render(request,'landing/index.html',contex)
+def home(request,page=None):
+    name = request.GET.get("name")
+    objects = Vidoes.objects.all()
+    objects = Paginator(objects,2)
+    page_number = page
+    page_obj = objects.get_page(page_number)
+    contex = { 'Article' : page_obj}
+    return render(request,'landing/index.html',contex)
 
 class DetailVideo(DetailView):
-    model = Vidoes
+    model = Article
     template_name = "landing/single.html"
 
 # def detail(request,pk_id):
