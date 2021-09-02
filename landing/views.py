@@ -7,17 +7,17 @@ from django.core.paginator import Paginator
 
 class ListVideo(ListView):
     model = Article
-    template_name = "landing/index.html"
+    template_name = "landing/main.html"
     paginate_by = 2
 
-def home(request,page=None):
-    name = request.GET.get("name")
-    objects = Vidoes.objects.all()
-    objects = Paginator(objects,2)
-    page_number = page
-    page_obj = objects.get_page(page_number)
-    contex = { 'Article' : page_obj}
-    return render(request,'landing/index.html',contex)
+# def home(request,page=None):
+#     name = request.GET.get("name")
+#     objects = Vidoes.objects.all()
+#     objects = Paginator(objects,2)
+#     page_number = page
+#     page_obj = objects.get_page(page_number)
+#     contex = { 'Article' : page_obj}
+#     return render(request,'landing/index.html',contex)
 
 class DetailVideo(DetailView):
     model = Article

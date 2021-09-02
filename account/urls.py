@@ -1,6 +1,6 @@
-from .views import wellcome
+from .views import DashBoard
 from django.urls import path
 name = "account"
 urlpatterns = [
-    path('wellcome/', wellcome,name="wellcome"),
+    path('', DashBoard.as_view(),name="dashboard"),
 ]
