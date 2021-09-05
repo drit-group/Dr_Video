@@ -27,18 +27,3 @@ class DetailVideo(DetailView):
 #     video = get_object_or_404(Vidoes, pk=pk_id )
 #     return render(request, "landing/single.html", {'video':video})
 
-def multi(request,num):
-    num = int(num)
-    num += 1
-    contex = []
-    for i in range(1,num):
-        tmp = []
-        for j in range(1,num):
-            tmp.append(j*i)
-        contex.append(tmp)
-    return render(request, "contex.html", {"contex" : contex})
-# contex = [
-# [1,2,3],
-# [1,2,3],
-# [1,2,3],
-# ]
