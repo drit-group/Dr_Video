@@ -1,14 +1,24 @@
 from django.db import models
 # from django.contrib.auth.models import User
+# AtractUser uses for customizing user model
 from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 # Create your models here.
 
 class User(AbstractUser):
+    class Meta:
+        verbose_name= "کاربر"
+        verbose_name_plural= "کاربران"
     is_writer = models.BooleanField(verbose_name="وضعیت نویسندگی",default=False)
+
+    
+    
 
 
 class Article(models.Model):
+    class Meta:
+        verbose_name = "مقاله"
+        verbose_name_plural = "مقالات"
     title = models.CharField(max_length=200,verbose_name="عنوان مقاله")
     slug = models.CharField(max_length=100,verbose_name="ادرس مقاله")
     # source = models.FileField("videos/")
@@ -25,6 +35,4 @@ class Article(models.Model):
         return self.title
     def get_image(self):
         return "/media/"+str(self.thumbnail)
-    class Meta:
-        verbose_name = "مقاله"
-        verbose_name_plural = "مقالات"
+    

@@ -9,7 +9,19 @@ class ListVideo(ListView):
     model = Article
     template_name = "landing/main.html"
     paginate_by = 2
+<<<<<<< Updated upstream
     #use oBject_list as a oBjectlist
+=======
+
+def home(request,page=None):
+    name = request.GET.get("name")
+    objects = Article.objects.all()
+    objects = Paginator(objects,2)
+    page_number = page
+    page_obj = objects.get_page(page_number)
+    contex = { 'Article' : page_obj}
+    return render(request,'landing/main.html',contex)
+>>>>>>> Stashed changes
 
 class DetailVideo(DetailView):
     model = Article
@@ -31,3 +43,12 @@ class DetailVideo(DetailView):
 #     video = get_object_or_404(Vidoes, pk=pk_id )
 #     return render(request, "landing/single.html", {'video':video})
 
+<<<<<<< Updated upstream
+=======
+
+# contex = [
+# [1,2,3],
+# [1,2,3],
+# [1,2,3],
+# ]
+>>>>>>> Stashed changes
