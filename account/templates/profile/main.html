@@ -17,8 +17,10 @@
                   </thead>
                   {% for video in object_list  %}
                   <tbody>
+                  {% for video in object_list %}
                     <tr>
                       <td>{{video.title}}</td>
+<<<<<<< HEAD
                       <td>
                       <img
                     src="{{video.get_image}}"
@@ -28,12 +30,18 @@
                       />
                       </td>
                       <td>{{video.description | truncatewords:18 }}</td>
+=======
+                      <td><img src="{{video.get_image}}"width="100px" /></td>
+                      <td>{{video.description | truncatewords:18}}</td>
+>>>>>>> a72baf4056a07b5bbb3627d6890e469052758b24
                     </tr>
+                  {% endfor %}
                   </tbody>
                   {% endfor %}
                 </table>
               </div>
               <!-- /.card-body -->
+<<<<<<< HEAD
               <div class="card-footer clearfix">
                 <ul class="pagination pagination-sm m-0 float-right">
                   <li class="page-item"><a class="page-link" href="#">«</a></li>
@@ -44,4 +52,7 @@
                 </ul>
               </div>
 </div>
+=======
+            </div>
+>>>>>>> a72baf4056a07b5bbb3627d6890e469052758b24
 {% endblock main %}

@@ -12,3 +12,10 @@ class DashBoard(LoginRequiredMixin,ListView):
     template_name = "profile/main.html"
     def get_queryset(self):
         return Article.objects.filter(writer=self.request.user)
+
+    # model = Article
+    login_url = "/admin/login"
+    template_name = "profile/main.html"
+    def get_queryset(self):
+        return Article.objects.filter(writer=self.request.user)
+
