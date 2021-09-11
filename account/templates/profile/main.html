@@ -13,16 +13,32 @@
                       <th>عنوان مقاله</th>
                       <th>تصویر بندانگشتی</th>
                       <th>متن مقاله</th>
+<<<<<<< HEAD
                       <th>تاریخ انتشار</th>
                       <th>وضعیت</th>
+=======
+>>>>>>> 6a53f5f7b43bde3e54521467e265949dbe4a2052
                     </tr>
                   </thead>
+                  {% for video in object_list  %}
                   <tbody>
                   {% for video in object_list %}
                     <tr>
                       <td>{{video.title}}</td>
+<<<<<<< HEAD
+                      <td>
+                      <img
+                    src="{{video.get_image}}"
+                    alt="Image"
+                    class="img-fluid tm-img-right"
+                    width="100"
+                      />
+                      </td>
+                      <td>{{video.description | truncatewords:18 }}</td>
+=======
                       <td><img src="{{video.get_image}}"width="100px" /></td>
                       <td>{{video.description | truncatewords:18}}</td>
+<<<<<<< HEAD
                       <td>{{video.published}}</td>
                       <td>
                       {% if video.status == 'p' %}
@@ -32,11 +48,28 @@
                       {% endif %}
                       </td>
 
+=======
+>>>>>>> a72baf4056a07b5bbb3627d6890e469052758b24
+>>>>>>> 6a53f5f7b43bde3e54521467e265949dbe4a2052
                     </tr>
                   {% endfor %}
                   </tbody>
+                  {% endfor %}
                 </table>
               </div>
               <!-- /.card-body -->
+<<<<<<< HEAD
+              <div class="card-footer clearfix">
+                <ul class="pagination pagination-sm m-0 float-right">
+                  <li class="page-item"><a class="page-link" href="#">«</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">»</a></li>
+                </ul>
+              </div>
+</div>
+=======
             </div>
+>>>>>>> a72baf4056a07b5bbb3627d6890e469052758b24
 {% endblock main %}
