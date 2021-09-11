@@ -12,7 +12,9 @@
                     <tr>
                       <th>عنوان مقاله</th>
                       <th>تصویر بندانگشتی</th>
-                      <th>متن مفاله</th>
+                      <th>متن مقاله</th>
+                      <th>تاریخ انتشار</th>
+                      <th>وضعیت</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -21,6 +23,15 @@
                       <td>{{video.title}}</td>
                       <td><img src="{{video.get_image}}"width="100px" /></td>
                       <td>{{video.description | truncatewords:18}}</td>
+                      <td>{{video.published}}</td>
+                      <td>
+                      {% if video.status == 'p' %}
+                      <a class="btn btn-success">منتشر شده</a>
+                      {% else %}
+                      <a class="btn btn-warning">پیشنویس</a>
+                      {% endif %}
+                      </td>
+
                     </tr>
                   {% endfor %}
                   </tbody>

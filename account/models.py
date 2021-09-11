@@ -20,7 +20,7 @@ class Article(models.Model):
         ('d',"پیشنویس")
     )
     status = models.CharField(max_length=1,choices=STATUS_CASES,verbose_name="وضعیت مقاله",default='d')
-    # published = models.DateField(default=)
+    published = models.DateField(default=timezone.now,verbose_name="تاریخ انتشار")
     def __str__(self):
         return self.title
     def get_image(self):
