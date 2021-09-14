@@ -1,9 +1,11 @@
 from django.db import models
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import ListView,CreateView
+from django.views.generic import ListView,CreateView,UpdateView
 from .models import Article
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .mixins import formMixin
+from django.urls import reverse_lazy
 # Create your views here.
 
 class DashBoard(LoginRequiredMixin,ListView):
@@ -13,16 +15,15 @@ class DashBoard(LoginRequiredMixin,ListView):
     def get_queryset(self):
         return Article.objects.filter(writer=self.request.user)
 
-    # model = Article
-    login_url = "/admin/login"
-    template_name = "profile/main.html"
-    def get_queryset(self):
-        return Article.objects.filter(writer=self.request.user)
-<<<<<<< HEAD
-class addArticle(LoginRequiredMixin,CreateView):
+class addArticle(formMixin,LoginRequiredMixin,CreateView):
     model = Article
     template_name = "profile/addArticle.html"
     fields = ['title','slug','thumbnail','description','status']
-=======
+    success_url = reverse_lazy("account:dashboard")
 
->>>>>>> 6a53f5f7b43bde3e54521467e265949dbe4a2052
+
+class editArticle(LoginRequiredMixin,UpdateView):
+    model = Article
+    template_name = "profile/addArticle.html"
+    fields = ['title','slug','thumbnail','description','status']
+    success_url = reverse_lazy("account:dashboard")

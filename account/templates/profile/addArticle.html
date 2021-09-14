@@ -1,15 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اضافه کردن مقاله</title>
-</head>
-<body>
-    <form method="post">{% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="ثبت">
+{% extends 'profile/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="card">
+  <div class="card-header">
+      <h3 class="card-title">اضافه کردن مقاله</h3>
+  </div>
+    <!-- /.card-header -->
+  <div class="card-body">
+    <form method="post" enctype="multipart/form-data" >{% csrf_token %}
+        {% comment %} {{form.as_p}} {% endcomment %}
+
+        <div class="row">
+            <div class="col-6">
+                {{form.title | as_crispy_field}}
+            </div>
+            <div class="col-6">
+                {{form.slug | as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{form.thumbnail | as_crispy_field}}
+            </div>
+            <div class="col-6">
+                {{form.status | as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{form.description | as_crispy_field}}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <input type="submit" class="btn btn-info btn-block mb-4 mr-2" value="ثبت">
+            </div>
+        </div>
     </form>
-</body>
-</html>
+ </div>
+</div>
+{% endblock main %}

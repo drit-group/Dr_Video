@@ -6,9 +6,11 @@ from django.views.generic import ListView , DetailView
 # Create your views here.
 
 class ListVideo(ListView):
-    model = Article
+    # model = Article
     template_name = "landing/main.html"
     paginate_by = 2
+    def get_queryset(self):
+        return Article.objects.filter(status='p')
 
 
 
@@ -16,6 +18,8 @@ class ListVideo(ListView):
 class DetailVideo(DetailView):
     model = Article
     template_name = "landing/single.html"
+    # def get_queryset(self):
+    #     return get_object_or_404(Article,slug=self.request.GET.slug)
     #use Article or object as an objectlist.Becouse of it's one ithem
 
 # def home(request,page=None):
