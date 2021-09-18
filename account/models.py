@@ -9,9 +9,10 @@ class User(AbstractUser):
     class Meta:
         verbose_name= "کاربر"
         verbose_name_plural= "کاربران"
-    is_writer = models.BooleanField(verbose_name="وضعیت نویسندگی",default=False)
 
     
+    is_writer = models.BooleanField(verbose_name="وضعیت نویسندگی",default=False)
+    is_admin = models.BooleanField(verbose_name="وضعیت مدیر",default=False)    
     
 
 

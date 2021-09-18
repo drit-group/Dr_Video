@@ -2,6 +2,7 @@ from django.shortcuts import render , get_object_or_404
 from django.http import HttpResponse
 from account.models import Article
 from django.views.generic import ListView , DetailView
+# from mixins import 
 #from django.core.paginator import Paginator
 # Create your views here.
 
@@ -16,10 +17,11 @@ class ListVideo(ListView):
 
 
 class DetailVideo(DetailView):
-    model = Article
+    # model = Article
     template_name = "landing/single.html"
-    # def get_queryset(self):
-    #     return get_object_or_404(Article,slug=self.request.GET.slug)
+    def get_object(self):
+        slug = self.kwargs.get('slug')
+        return get_object_or_404(Article,slug=slug,status='p')
     #use Article or object as an objectlist.Becouse of it's one ithem
 
 # def home(request,page=None):

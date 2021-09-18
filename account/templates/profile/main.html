@@ -43,13 +43,13 @@
         width="100"
           />
           </td>
-          <td>{{video.description | truncatewords:18}}</td>
+          <td>{{video.description | striptags | truncatewords:18 }}</td>
           <td>{{video.published}}</td>
           <td>
           {% if video.status == 'p' %}
-          <a class="btn btn-success">منتشر شده</a>
+          <button class="btn btn-success">منتشر شده</button>
           {% else %}
-          <a class="btn btn-warning">پیشنویس</a>
+          <button class="btn btn-warning">پیشنویس</button>
           {% endif %}
           </td>
 

@@ -34,7 +34,7 @@ https://templatemo.com/tm-527-sided
                       {{article.title}}
                     </h2>
                     <p class="mb-0">
-                      {{article.description | truncatewords:45}}
+                      {{article.description | truncatewords:45  | striptags}}
                     </p>
                   </div>
                 </div>
@@ -54,7 +54,32 @@ https://templatemo.com/tm-527-sided
       {% endfor %} 
     </div>
     <!-- pagination -->
-
+    <div class="row">
+      <div class="col-md-12">
+        <div class="tm-pagination-container">
+          <ul class="pagination">
+            {% if page_obj.has_next %}
+            <li class="page-item">
+              <a class="page-link" href="/page/{{page_obj.next_page_number}}">
+                <span class="page-link-text">
+                  صفحه بعدی
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+              <a class="page-link" href="/page/{{page_obj.previous_page_number}}">
+                <span class="page-link-text">
+                  صفحه قبلی
+                </span>
+              </a>
+            </li>
+            {% endif %}
+            </ul>
+        </div>
+      </div>
+    </div>
     
     <!-- /.columns-bg -->
   </body>
