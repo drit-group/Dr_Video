@@ -1,58 +1,72 @@
 {% extends 'profile/base.html' %}
 
 {% block main %}
+
+
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          <a href="{% url 'account:addArticle' %}">
+            <h1 class="m-0 text-dark">افزودن مقاله</h1>
+          </a>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+
 <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">لیست مقالات</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table class="table table-bordered">
-                  <thead>                  
-                    <tr>
-                      <th>عنوان مقاله</th>
-                      <th>تصویر بندانگشتی</th>
-                      <th>متن مقاله</th>
-                    </tr>
-                  </thead>
-                  {% for video in object_list  %}
-                  <tbody>
-                  {% for video in object_list %}
-                    <tr>
-                      <td>{{video.title}}</td>
-<<<<<<< HEAD
-                      <td>
-                      <img
-                    src="{{video.get_image}}"
-                    alt="Image"
-                    class="img-fluid tm-img-right"
-                    width="100"
-                      />
-                      </td>
-                      <td>{{video.description | truncatewords:18 }}</td>
-=======
-                      <td><img src="{{video.get_image}}"width="100px" /></td>
-                      <td>{{video.description | truncatewords:18}}</td>
->>>>>>> a72baf4056a07b5bbb3627d6890e469052758b24
-                    </tr>
-                  {% endfor %}
-                  </tbody>
-                  {% endfor %}
-                </table>
-              </div>
-              <!-- /.card-body -->
-<<<<<<< HEAD
-              <div class="card-footer clearfix">
-                <ul class="pagination pagination-sm m-0 float-right">
-                  <li class="page-item"><a class="page-link" href="#">«</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">»</a></li>
-                </ul>
-              </div>
+  <div class="card-header">
+      <h3 class="card-title">لیست مقالات</h3>
+  </div>
+    <!-- /.card-header -->
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>                  
+        <tr>
+          <th>عنوان مقاله</th>
+          <th>تصویر بندانگشتی</th>
+          <th>متن مقاله</th>
+          <th>تاریخ انتشار</th>
+          <th>وضعیت</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for video in object_list %}
+        <tr>
+          <td><a href="{% url 'account:editArticle' video.pk %}"">{{video.title}}</a></td>
+          <td>
+          <img
+        src="{{video.get_image}}"
+        alt="Image"
+        class="img-fluid tm-img-right"
+        width="100"
+          />
+          </td>
+          <td>{{video.description | striptags | truncatewords:18 }}</td>
+          <td>{{video.published}}</td>
+          <td>
+          {% if video.status == 'p' %}
+          <button class="btn btn-success">منتشر شده</button>
+          {% else %}
+          <button class="btn btn-warning">پیشنویس</button>
+          {% endif %}
+          </td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    <!-- /.card-body -->
+    <!-- <div class="card-footer clearfix">
+      <ul class="pagination pagination-sm m-0 float-right">
+        <li class="page-item"><a class="page-link" href="#">«</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">»</a></li>
+      </ul>
+    </div> -->
 </div>
-=======
-            </div>
->>>>>>> a72baf4056a07b5bbb3627d6890e469052758b24
 {% endblock main %}
