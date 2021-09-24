@@ -49,7 +49,11 @@
           {% if video.status == 'p' %}
           <button class="btn btn-success">منتشر شده</button>
           {% else %}
-          <button class="btn btn-warning">پیشنویس</button>
+            {% if user.is_admin %}
+              <a href="?action=publish&pk={{video.pk}}" class="btn btn-warning" >پیشنویس</a>
+            {% else %}
+              <button class="btn btn-warning">پیشنویس</button>
+            {% endif %}
           {% endif %}
           </td>
 

@@ -14,7 +14,7 @@ class User(AbstractUser):
     is_writer = models.BooleanField(verbose_name="وضعیت نویسندگی",default=False)
     is_admin = models.BooleanField(verbose_name="وضعیت مدیر",default=False)    
     
-
+class category(models.Model)
 
 class Article(models.Model):
     class Meta:
