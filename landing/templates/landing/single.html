@@ -36,7 +36,9 @@ https://templatemo.com/tm-527-sided
                   {{article.description | safe}}
                 </p>
                 <div class="text-right">
-                  <a href="#section_2" class="btn btn-primary">Read More</a>
+                  {{article.get_category}}
+
+                  {% comment %} <a href="#section_2" class="btn btn-primary">Read More</a> {% endcomment %}
                 </div>
               </div>
             </div>
