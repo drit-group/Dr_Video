@@ -25,13 +25,16 @@ class Category(models.Model):
         verbose_name = "دسته"
         verbose_name_plural = "دسته بندی"
 
-class Article(models.Model):
+class Film(models.Model):
     class Meta:
-        verbose_name = "مقاله"
-        verbose_name_plural = "مقالات"
-    title = models.CharField(max_length=200,verbose_name="عنوان مقاله")
-    slug = models.CharField(max_length=100,verbose_name="ادرس مقاله")
-    # source = models.FileField("videos/")
+        verbose_name = "فیلم"
+        verbose_name_plural = "فیلم ها"
+
+    
+    title = models.CharField(max_length=200,verbose_name="عنوان فیلم")
+    slug = models.CharField(max_length=100,verbose_name="ادرس فیلم")
+    source = models.FileField("videos/",null=True)
+    iframe_source = models.CharField(max_length=600,null=True)
     thumbnail = models.ImageField(upload_to="images/",verbose_name="تصویر بند انگشتی")
     description = models.TextField()
     STATUSE_CASES=(
@@ -39,17 +42,16 @@ class Article(models.Model):
         ("p" , "منتشر" ),
         ("d","حذف شده")
     )
-    status=models.CharField( max_length=1,choices=STATUSE_CASES,verbose_name="وضعیت مقاله",default="d")
-    puished=models.DateField(default=timezone.now,verbose_name="زمان انتشار مقاله")
-    description = models.TextField()    
+    status=models.CharField( max_length=1,choices=STATUSE_CASES,verbose_name="وضعیت فیلم",default="d")
+    puished=models.DateField(default=timezone.now,verbose_name="زمان انتشار فیلم")
+    description = models.TextField()
 
-    writer = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,verbose_name="نویسنده :")
+    creator = models.ForeignKey(User,on_delete=models.SET_NULL,null=True,verbose_name="منتشر کننده :")
     
-    published = models.DateField(default=timezone.now,verbose_name="تاریخ انتشار")
 
 
 
-    category = models.ManyToManyField(Category,related_name="Art",verbose_name="دسته بندی")
+    category = models.ManyToManyField(Category,related_name="film",verbose_name="دسته بندی")
 
     def get_category(self):
         cats = self.category.filter(status=True)
@@ -61,6 +63,8 @@ class Article(models.Model):
         return self.title
     def get_image(self):
         return "/media/"+str(self.thumbnail)
+    def get_video(self):
+        return "/media/"+str(self.source)
 
 
 

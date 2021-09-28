@@ -1,8 +1,8 @@
-from .views import DashBoard,addArticle,editArticle
+from .views import DashBoard,addFilm,editFilm
 from django.urls import path
 app_name = "account"
 urlpatterns = [
     path('', DashBoard.as_view(),name="dashboard"),
-    path('create', addArticle.as_view(),name="addArticle"),
-    path("edit/<int:pk>", editArticle.as_view(), name="editArticle"),
+    path('create', addFilm.as_view(),name="addArticle"),
+    path("edit/<int:pk>", editFilm.as_view(), name="editArticle"),
 ]
