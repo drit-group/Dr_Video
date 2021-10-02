@@ -1,4 +1,4 @@
-
+from django.http import Http404
 class formMixin():
     def form_valid(self,form):
         self.object = form.save(commit=False)
@@ -11,4 +11,6 @@ class Status_access():
             self.fields = ['title','slug','thumbnail','description','status','category']
         elif (request.user.is_writer):
             self.fields = ['title','slug','thumbnail','description','category']
+        else:
+            raise Http404
         return super().dispatch(request)
