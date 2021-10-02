@@ -8,7 +8,7 @@ from django.views.generic import ListView , DetailView
 
 class ListVideo(ListView):
     # model = Film
-    template_name = "landing/main.html"
+    template_name = "landing/index.html"
     paginate_by = 2
     def get_queryset(self):
         return Film.objects.filter(status='p')
