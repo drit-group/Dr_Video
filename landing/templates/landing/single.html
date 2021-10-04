@@ -1,67 +1,30 @@
-
-
-
-{% comment %} <a href="{{object.get_image}}">v</a> {% endcomment %}
-
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
-    <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}" />
-    <title>{{article.title}}</title>
-  </head>
-<!--
-Sided Template
-https://templatemo.com/tm-527-sided
--->
-  <body>
-    <section id="section_1" class="tm-p-2-section-1 tm-sm-bg-blue">
-        <div class="container-fluid">
-          <div class="row flex-column-reverse flex-lg-row">
-            <div class="col-md-12 col-lg-6 tm-text-left-container">
-              <div class="tm-section-text-container-3 tm-bg-white-alpha h-100">
-                <h3 class="text-lowercase tm-text-primary tm-site-name">
-                  {{article.title}}
-                </h3>
-                <hr class="tm-hr-mb" />
-                <p class="tm-p-mb">
-                  {{article.description | safe}}
-                </p>
-                <div class="text-right">
-                  {{article.get_category}}
-
-                  {% comment %} <a href="#section_2" class="btn btn-primary">Read More</a> {% endcomment %}
-                </div>
-              </div>
-            </div>
-            <div
-              class="col-md-12 col-lg-6 tm-section-image-container tm-img-right-container"
-            >
-              <img
-                src="{{article.get_image}}"
-                alt="Image"
-                class="img-fluid tm-img-right"
-              />
-            </div>
-          </div>
+{% block main %}
+<li class="px-3" data-page-no="1">
+    <div class="page-width-1 page-left">
+        <div class="d-flex position-relative tm-border-top tm-border-bottom intro-container">
+        <div class="intro-left tm-bg-dark">
+            <h2 class="mb-4">Welcome to Astro Motion</h2>
+            <p class="mb-4">
+            This HTML template has a motion video background loop which is provided by <a rel="sponsored" href="https://getfreepictures.com" target="_blank">Get Free Pictures</a>. This is
+            one-page responsive layout for your websites. Feel
+            free to use this for a commercial purpose. </p>
+            <p class="mb-0">
+            You are not permitted to redistribute this template on your Free CSS collection websites. Please <a rel="nofollow" href="https://templatemo.com/contact" target="_blank">contact us</a> for more information. </p>
         </div>
-      </section>
-
-    {% comment %} <div class="row">
-            <footer class="col-sm-12 col-md-6 offset-md-6 px-md-0">
-            </footer>
-          </div>
+        <div class="intro-right">
+            <img src="img/home-img-1.jpg" alt="Image" class="img-fluid intro-img-1">
+            <img src="img/home-img-2.jpg" alt="Image" class="img-fluid intro-img-2">
         </div>
-      </section>
-    </div>
-    <!-- /.columns-bg --> {% endcomment %}
-  </body>
-</html> 
+        <div class="circle intro-circle-1"></div>
+        <div class="circle intro-circle-2"></div>
+        <div class="circle intro-circle-3"></div>
+        <div class="circle intro-circle-4"></div>
+        </div>
+        <div class="text-center">
+        <a href="#0" data-page-no="2" class="btn btn-primary tm-intro-btn tm-page-link">
+            View Gallery
+        </a>
+        </div>            
+    </div>            
+</li> 
+{% endblock main %}
