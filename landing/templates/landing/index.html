@@ -8,31 +8,15 @@
         <div class="mx-auto tm-border-top gallery-slider">
        
         {% for video in object_list %}
-    <div class="container-fluid tm-content-container">
-        <ul class="cd-hero-slider mb-0 py-5">
-          <li class="px-3" data-page-no="1">
-            <div class="page-width-1 page-left">
-              <div class="d-flex position-relative tm-border-top tm-border-bottom intro-container">
-                <div class="intro-left tm-bg-dark">
-                  <h2 class="mb-4">{{video.title}}</h2>
-                  <p class="mb-4">
-                    {{video.descriotion| truncatewords:45  | striptags}}
-                  </p>
-                  <figure class="effect-julia item">
-                    <img src="{{video.thumbnail}}"
-                     alt="Image">
+        <figure class="effect-julia item">
+            <img src="{{video.get_image}}" alt="Image">
+            <figcaption>
+                <div>
+                    <p>{{video.title}}</p>
                 </div>
-                <div class="intro-right">
-                  <img src="img/home-img-1.jpg" alt="Image" class="img-fluid intro-img-1">
-                  <img src="img/home-img-2.jpg" alt="Image" class="img-fluid intro-img-2">
-                  {{video.source}}
-                </div>
-              </div>            
-            </div>            
-          </li>
-        </ul>
-    </div>
-
+                <a href="{% url 'landing:single' video.slug  %}">View more</a>
+            </figcaption>
+        </figure>
         {% endfor %}
         </div>
     </div>

@@ -34,6 +34,6 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.DeleteModel(
-            name='Article',
+            name='Film',
         ),
     ]

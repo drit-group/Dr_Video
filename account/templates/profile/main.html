@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-          <a href="{% url 'account:addArticle' %}">
+          <a href="{% url 'account:addFilm' %}">
             <h1 class="m-0 text-dark">افزودن فیلم</h1>
           </a>
           </div><!-- /.col -->
@@ -34,7 +34,7 @@
       <tbody>
         {% for video in object_list %}
         <tr>
-          <td><a href="{% url 'account:editArticle' video.pk %}"">{{video.title}}</a></td>
+          <td><a href="{% url 'account:editFilm' video.pk %}"">{{video.title}}</a></td>
           <td>
           <img
         src="{{video.get_image}}"

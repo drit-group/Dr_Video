@@ -77,21 +77,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/layout/top-nav.html" class="nav-link">
+                <a href="{% url 'account:addFilm' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                    <p>افزودن فیلم</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/boxed.html" class="nav-link">
+                <a href="{% url 'account:dashboard' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>لیست فیلم ها</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                <a href="{% url 'account:addCategory' %}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>دسته بندی ها</p>
+                  <p>افزودن دسته بندی </p>
                 </a>
               </li>
               <li class="nav-item">
@@ -100,18 +100,7 @@
                   <p>لیست دسته بندی ها</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/layout/fixed-footer.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Fixed Footer</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Collapsed Sidebar</p>
-                </a>
-              </li>
+ 
             </ul>
           </li>
 

@@ -2,7 +2,7 @@ from django.db import models
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from django.views.generic import ListView,CreateView,UpdateView
-from .models import Film
+from .models import Category, Film
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .mixins import formMixin , Status_access
 from django.urls import reverse_lazy
@@ -29,4 +29,17 @@ class editFilm(Status_access,LoginRequiredMixin,UpdateView):
     model = Film
     template_name = "profile/addFilm.html"
     fields = ['title','slug','thumbnail','description','status']
+    success_url = reverse_lazy("account:dashboard")
+
+
+class addCategory(LoginRequiredMixin,CreateView):
+    model = Category
+    template_name = "profile/catForm.html"
+    fields = ["name","status","slug"]
+    success_url = reverse_lazy("account:dashboard")
+
+class editCategory(LoginRequiredMixin,UpdateView):
+    model = Category
+    template_name = "profile/catForm.html"
+    fields = ["name","status","slug"]
     success_url = reverse_lazy("account:dashboard")

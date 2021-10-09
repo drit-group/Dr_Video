@@ -24,12 +24,12 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.AlterField(
-            model_name='article',
+            model_name='Film',
             name='status',
             field=models.CharField(choices=[('d', '\u200d\u200d\u200d\u200dبیش نویس'), ('p', 'منتشر'), ('d', 'حذف شده')], default='d', max_length=1, verbose_name='وضعیت مقاله'),
         ),
         migrations.AddField(
-            model_name='article',
+            model_name='Film',
             name='category',
             field=models.ManyToManyField(related_name='Art', to='account.Category', verbose_name='دسته بندی'),
         ),

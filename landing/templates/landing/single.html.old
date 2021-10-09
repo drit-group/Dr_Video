@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}" />
-    <title>{{article.title}}</title>
+    <title>{{Film.title}}</title>
   </head>
 <!--
 Sided Template
@@ -29,14 +29,14 @@ https://templatemo.com/tm-527-sided
             <div class="col-md-12 col-lg-6 tm-text-left-container">
               <div class="tm-section-text-container-3 tm-bg-white-alpha h-100">
                 <h3 class="text-lowercase tm-text-primary tm-site-name">
-                  {{article.title}}
+                  {{Film.title}}
                 </h3>
                 <hr class="tm-hr-mb" />
                 <p class="tm-p-mb">
-                  {{article.description | safe}}
+                  {{Film.description | safe}}
                 </p>
                 <div class="text-right">
-                  {{article.get_category}}
+                  {{Film.get_category}}
 
                   {% comment %} <a href="#section_2" class="btn btn-primary">Read More</a> {% endcomment %}
                 </div>
@@ -46,7 +46,7 @@ https://templatemo.com/tm-527-sided
               class="col-md-12 col-lg-6 tm-section-image-container tm-img-right-container"
             >
               <img
-                src="{{article.get_image}}"
+                src="{{Film.get_image}}"
                 alt="Image"
                 class="img-fluid tm-img-right"
               />

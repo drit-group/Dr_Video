@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             field=models.BooleanField(default=False, verbose_name='وضعیت مدیر'),
         ),
         migrations.AlterField(
-            model_name='article',
+            model_name='Film',
             name='status',
             field=models.CharField(choices=[('d', '\u200d\u200d\u200d\u200dبیش نویس'), ('p', 'منتشر')], default='d', max_length=1, verbose_name='وضعیت مقاله'),
         ),
