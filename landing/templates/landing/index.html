@@ -1,22 +1,38 @@
 {% extends 'landing/main.html' %}
 {% block main %}
-
     <li data-page-no="2">
     <!-- Image Carousel -->
     <div class="mx-auto position-relative gallery-container">
         <div class="circle intro-circle-1"></div>
         <div class="circle intro-circle-2"></div>
         <div class="mx-auto tm-border-top gallery-slider">
+       
         {% for video in object_list %}
-        <figure class="effect-julia item">
-            <img src="img/gallery-img-01.jpg" alt="Image">
-            <figcaption>
-                <div>
-                    <p>video.descriotion</p>
+    <div class="container-fluid tm-content-container">
+        <ul class="cd-hero-slider mb-0 py-5">
+          <li class="px-3" data-page-no="1">
+            <div class="page-width-1 page-left">
+              <div class="d-flex position-relative tm-border-top tm-border-bottom intro-container">
+                <div class="intro-left tm-bg-dark">
+                  <h2 class="mb-4">{{video.title}}</h2>
+                  <p class="mb-4">
+                    {{video.descriotion| truncatewords:45  | striptags}}
+                  </p>
+                  <figure class="effect-julia item">
+                    <img src="{{video.thumbnail}}"
+                     alt="Image">
                 </div>
-                <a href="#">View more</a>
-            </figcaption>
-        </figure>
+                <div class="intro-right">
+                  <img src="img/home-img-1.jpg" alt="Image" class="img-fluid intro-img-1">
+                  <img src="img/home-img-2.jpg" alt="Image" class="img-fluid intro-img-2">
+                  {{video.source}}
+                </div>
+              </div>            
+            </div>            
+          </li>
+        </ul>
+    </div>
+
         {% endfor %}
         </div>
     </div>
@@ -89,3 +105,4 @@
     </div>            
 </li> {% endcomment %}
 {% endblock main %}
+
