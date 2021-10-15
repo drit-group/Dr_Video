@@ -1,6 +1,7 @@
 # Custom files
 static/ckeditor/
 .static
+*/migrations/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
