@@ -1,4 +1,4 @@
-from .views import DashBoard,addFilm,editFilm,addCategory,editCategory
+from .views import DashBoard, addFilm, editFilm, addCategory, editCategory, allCategory
 from django.urls import path
 app_name = "account"
 urlpatterns = [
@@ -7,4 +7,5 @@ urlpatterns = [
     path("edit/<int:pk>", editFilm.as_view(), name="editFilm"),
     path("addCat/", addCategory.as_view(), name="addCategory"),
     path("editCat/", editCategory.as_view(), name="editCategory"),
+    path("allCat/", allCategory.as_view(), name="allCategory")
 ]
