@@ -1,0 +1,47 @@
+{% extends 'profile/base.html' %}
+
+{% block main %}
+
+
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+          <a href="{% url 'account:addCategory' %}">
+            <h1 class="m-0 text-dark">افزودن دسته بندی</h1>
+          </a>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+
+<div class="card">
+  <div class="card-header">
+      <h3 class="card-title">لیست تگ ها</h3>
+  </div>
+    <!-- /.card-header -->
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>                  
+        <tr>
+          <th>عنوان تگ</th>
+          <th>وضعیت تگ</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for tag in object_list %}
+        <tr>
+          <td>
+            {{tag.name}}
+          </td>
+          <td>
+            {{tag.status}}  
+          </td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock main %}

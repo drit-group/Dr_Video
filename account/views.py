@@ -43,3 +43,9 @@ class editCategory(LoginRequiredMixin,UpdateView):
     template_name = "profile/catForm.html"
     fields = ["name","status","slug"]
     success_url = reverse_lazy("account:dashboard")
+
+
+class allCategory(LoginRequiredMixin, ListView):
+    model = Category
+    template_name = "profile/catlist.html"
+    success_url = reverse_lazy("account:dashboard")
