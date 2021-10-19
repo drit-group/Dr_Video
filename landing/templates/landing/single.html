@@ -1,24 +1,35 @@
 {% block main %}
+<style>
+#header{
+    text-align:center;
+}
+</style>
 <li class="px-3" data-page-no="1">
-    <div class="page-width-1 page-left">
+    <html lang="fa" dir="rtl" >
+    <div class="page-width-1 page-right">
         <div class="d-flex position-relative tm-border-top tm-border-bottom intro-container">
-        <div class="intro-left tm-bg-dark">
-        <title class="mb-4">{{film.title}}</title>
-            
-            <p class="mb-4">
-            {{film.description | safe}} </p>
+        <div class="intro-right tm-bg-dark">
         </div>
-        {{Film.get_category}}
-        <div class="intro-right">
-            <img src={{film.get_image}} alt="Image" class="img-fluid intro-img-1">
+        <title class="mb-4">
+        {{film.title }}   </title>
+        <h1 id="header"class="mb-4">
+        {{film.title}}  </h1>
+        <div class="row">
+            <div class="col-6">
+                <img src={{film.get_image}} alt="Image" width="500" height="550" class="img-fluid intro-img-1">
+            </div>
+            <div class="col-6">
+                <p class="mb-4"> {{film.description | safe}} </p>
+            </div>
         </div>
+        
         <div class="circle intro-circle-1"></div>
         <div class="circle intro-circle-2"></div>
         <div class="circle intro-circle-3"></div>
         <div class="circle intro-circle-4"></div>
         </div>
         <div class="text-center">
-        <a href="#0" data-page-no="2" class="btn btn-primary tm-intro-btn tm-page-link">
+        <a href="{% url 'landing:home' %}" data-page-no="2" class="btn btn-primary tm-intro-btn tm-page-link">
             View Gallery
         </a>
         </div>            
