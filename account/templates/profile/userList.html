@@ -1,0 +1,42 @@
+{% extends 'profile/base.html' %}
+{% load userL%}
+{% block main %}
+
+<div class="card">
+  <div class="card-header">
+      <h3 class="card-title">لیست کاربران</h3>
+  </div>
+    <!-- /.card-header -->
+  <div class="card-body">
+    <table class="table table-bordered">
+      <thead>                  
+        <tr>
+          <th>نام و نام خانوادگی</th>
+          <th>وضعیت مدیریت</th>
+          <th>وضعیت نویسندگی</th>
+          <th>تعداد ویدئو های انتشار یافته</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for user in object_list %}
+        <tr>
+          <td>
+            {{user.get_full_name}}
+          </td>
+          <td>
+            {{user.is_admin}}  
+          </td>
+          <td>
+            {{user.is_writer}}
+          </td>
+          <td>
+            {% find_len user%}  
+          </td>
+
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock main %}

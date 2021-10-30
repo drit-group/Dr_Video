@@ -1,0 +1,59 @@
+{% extends 'profile/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block main %}
+<div class="card">
+  <div class="card-header">
+      <h3 class="card-title">ضافه کردن فیلم</h3>
+  </div>
+    <!-- /.card-header -->
+  <div class="card-body">
+    <form method="post" enctype="multipart/form-data" >{% csrf_token %}
+        {% comment %} {{form.as_p}} {% endcomment %}
+
+        <div class="row">
+            <div class="col-6">
+                {{form.title | as_crispy_field}}
+            </div>
+            <div class="col-6">
+                {{form.slug | as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{form.thumbnail | as_crispy_field}}
+            </div>
+            {% if user.is_admin %}
+            <div class="col-6">
+                {{form.status | as_crispy_field}}
+            </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{form.description | as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{form.category | as_crispy_field}}
+            </div>
+            <div class="col-6">
+                {{form.source | as_crispy_field}}
+            </div>
+        </div>
+
+        {% comment %} 
+            Source , ifram_source , 
+         {% endcomment %}
+        <div class="row">
+            <div class="col-12">
+                <input type="submit" class="btn btn-info btn-block mb-4 mr-2" value="ثبت">
+            </div>
+        </div>
+
+    </form>
+ </div>
+</div>
+{% endblock main %}

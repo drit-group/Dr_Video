@@ -2,7 +2,7 @@ from django.db import models
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from django.views.generic import ListView,CreateView,UpdateView
-from .models import Category, Film
+from .models import Category, Film, User
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .mixins import formMixin , Status_access
 from django.urls import reverse_lazy
@@ -48,4 +48,16 @@ class editCategory(LoginRequiredMixin,UpdateView):
 class allCategory(LoginRequiredMixin, ListView):
     model = Category
     template_name = "profile/catlist.html"
-    success_url = reverse_lazy("account:dashboard")
+
+
+class editProfile(LoginRequiredMixin,UpdateView):
+    model=User
+    template_name="profile/Userform.html"
+    fields= ['is superuser' , 'username','first_name','last_name','email','is_writer','is_admin']
+    success_url=reverse_lazy("account:dashboard")
+
+class listUsers(LoginRequiredMixin,ListView):
+    def get_queryset(self):
+        return {"user":User.objects.all()}
+    
+    template_name="profile/userList.html"
